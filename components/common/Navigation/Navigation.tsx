@@ -17,6 +17,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
+import OUTLET_DATA from "../../../data/OUTLET_DATA";
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -48,7 +49,7 @@ export default function Navigation() {
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            Outlet,-
+            {OUTLET_DATA.orgName}
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
