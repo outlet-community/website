@@ -2,19 +2,19 @@ import { Box, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 
 import { Button } from '../../components/UI/Button'
-import type { BroadcastAttributes } from '../../interfaces/Broadcast'
+import type { Broadcast, BroadcastAttributes } from '../../interfaces/Broadcast'
 import { fetchAPI } from '../../lib/api'
 import AppHead from '../../utils/AppHead'
 
-const Broadcasts: React.FC<BroadcastAttributes> = ({ broadcasts }) => {
+const Broadcasts: React.FC<Broadcast> = ({ broadcasts }) => {
   return (
     <>
       <AppHead title="Broadcasts" />
       <Button>OUTLET DELIVERY</Button>
-      {broadcasts.data.map((broadcast, i) => {
+      {broadcasts.data.map((broadcast: Broadcast, i) => {
         return (
           <Box key={i} borderRadius={50} borderWidth={2} borderColor="black">
-            <Heading>{broadcast.attributes.createdAt}</Heading>
+            <Heading>{broadcast.attributes.title}</Heading>
             <Text>{broadcast.attributes.description}</Text>
           </Box>
         )

@@ -1,4 +1,6 @@
 import type { Artist } from './Artist'
+import type { Genre } from './Genre'
+import type { Show } from './Show'
 
 export interface Broadcast {
   data: BroadcastData[]
@@ -22,4 +24,6 @@ export interface BroadcastAttributes {
   artists: Artist[]
   image: File
   audio: File
+  show: Show
+  genres: Genre[]
 }
