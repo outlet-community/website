@@ -24,15 +24,16 @@
       {
         "name": "next"
       }
-    ]
-  },
-  "paths": {
-    "@components/*": ["src/components/*"],
-    "@components": ["src/components"],
-    "@styles/*": ["src/styles/*"],
-    "@styles": ["src/styles"],
-    "@public/*": ["public/*"],
-    "@public": ["public"],
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@components": ["components"],
+      "@lib/*": ["lib/*"],
+      "@lib": ["lib"],
+      "@public/*": ["public/*"],
+      "@public": ["public"],
+    },
   },
   "include": [
     "next-env.d.ts",
