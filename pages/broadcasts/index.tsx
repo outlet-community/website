@@ -1,26 +1,33 @@
 import { Box, Heading, Text } from '@chakra-ui/react'
-import BroadcastView from '@components/Broadcast/BroadcastView/BroadcastView'
+import BroadcastCard from '@components/Broadcast/BroadcastCard/BroadcastCard'
 import { Button } from '@components/UI/Button'
+import Link from 'next/link'
 import React from 'react'
 
-import type { Broadcast, BroadcastAttributes } from '../../interfaces/Broadcast'
+import type { Broadcast, BroadcastAttributes, BroadcastData } from '../../interfaces/Broadcast'
 import { fetchAPI } from '../../lib/api'
 import AppHead from '../../utils/AppHead'
 
-const Broadcasts: React.FC<Broadcast> = ({ broadcasts }) => {
+const Broadcasts: React.FC<{ broadcasts: Broadcast }> = props => {
+  const { broadcasts } = props
+
   return (
     <>
-      <AppHead title="Broadcasts" />
-      <Button>OUTLET DELIVERY</Button>
-      <BroadcastView />
-      {broadcasts.data.map((broadcast: Broadcast, i) => {
-        return (
-          <Box key={i} borderRadius={50} borderWidth={2} borderColor="black">
-            <Heading>{broadcast.attributes.title}</Heading>
-            <Text>{broadcast.attributes.description}</Text>
+      <AppHead title="Broadcasts" description="Broadcasts" />
+      <Box>
+        <Heading as="h1" size="xl">
+          Broadcasts
+        </Heading>
+        {broadcasts.data.map(broadcast => (
+          <Box key={broadcast.id}>
+            <Link href={`/broadcast/${broadcast.attributes.slug}`}>
+              <a>
+                <BroadcastCard broadcast={broadcast} />
+              </a>
+            </Link>
           </Box>
-        )
-      })}
+        ))}
+      </Box>
     </>
   )
 }

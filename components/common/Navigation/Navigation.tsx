@@ -17,7 +17,8 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import OUTLET_DATA from "../../../data/OUTLET_DATA";
+
+import OUTLET_DATA from '../../../data/OUTLET_DATA'
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -49,7 +50,7 @@ export default function Navigation() {
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            {OUTLET_DATA.orgName}
+            <NextLink href="/">{OUTLET_DATA.orgName}</NextLink>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -230,11 +231,11 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   {
     label: 'Broadcasts',
-    href: 'broadcasts',
+    href: '/broadcasts',
   },
   {
     label: 'Releases',
-    href: 'releases',
+    href: '/releases',
   },
   {
     label: 'Events',
